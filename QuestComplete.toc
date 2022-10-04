@@ -1,0 +1,7 @@
+## Interface: 30400
+## Title: Questcomplete
+## Notes: Show if your party completed your quests.
+## Author: Thales Oliveira
+## Version: 0.0.1
+
+QuestComplete.lua
