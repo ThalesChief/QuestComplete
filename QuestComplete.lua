@@ -162,6 +162,10 @@ local function handlerNew(msg,editBox)
 			QC.Title:SetText(tostring(QC.completed))
 			QC.Title:SetTextColor(r,g,b,1)
 			QC.textField:ClearFocus()
+			C_Timer.After(2, function()
+				QC.Title:SetText("Quest status")
+				QC.Title:SetTextColor(1,1,1,1)
+			end)
 		end
 	end
 
@@ -171,7 +175,11 @@ local function handlerNew(msg,editBox)
 	QC.okButton:SetText("Check");
 	QC.okButton:SetNormalFontObject("GameFontNormal");
 	QC.okButton:SetHighlightFontObject("GameFontHighlight");
-	QC.okButton:SetScript("OnMouseDown",QC.CheckQuest)
+	QC.okButton:SetScript("OnMouseDown", 
+		function(self, button)
+			QC.CheckQuest(button)
+		end
+	)
 	--[[
 	QC:SetScript("QUEST_QUERY_COMPLETE", function()
 		print("QC query completed")
